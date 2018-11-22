@@ -43,3 +43,7 @@ plans = [
 
 def home():
     return "OK"
+
+@app.route('/plans', methods=['GET'])
+def api_all():
+    return jsonify(plans)
