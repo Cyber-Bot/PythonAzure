@@ -43,24 +43,3 @@ plans = [
 
 def home():
     return "OK"
-
-@app.route('/plans', methods=['GET'])
-def api_all():
-    return jsonify(plans)
-	
-@app.route('/BuildPlan', methods=['GET'])
-def api_id():
-
-    if 'id' in request.args:
-        id = int(request.args['id'])
-    else:
-        return "Error: No id field provided. Please specify an id."
-
-    results = []
-
-    for plan in plans:
-        if plan['planId'] == id:
-            results.append(plan)
-    return jsonify(id)
-
-app.run()
